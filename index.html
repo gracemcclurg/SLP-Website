@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--
+      This is the page head - it contains info the browser uses to display the page
+      You won't see what's in the head in the page
+      Scroll down to the body element for the page content
+    -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="icon"
+      href="https://cdn.glitch.global/c9e187f8-bca7-44d5-a5a5-8ee9489a6249/rainbowball.png?v=1645559217853"
+    />
+
+
+    <title>SLP Pal</title>
+
+    <!-- Import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+
+    <!-- Import the webpage's javascript file -->
+    <script src="/script.js" defer></script>
+  </head>
+  <body onload="refreshVariables()">
+    <!--class="content" role="main"-->
+
+    <!-- This is the start of content for our page -->
+    <div style="background-color: rgb(170, 179, 189); width: 100%">
+      <h1 class="title" id="alert">SLP Pal</h1>
+    </div>
+
+    <div class="buttonSelectionBackground">
+      <br />
+      <center>
+        <button
+          id="defaultOpen"
+          class="pillButton"
+          onclick="openTab(event, 'Home')"
+        >
+          Home + Practice Words
+        </button>
+        <button class="pillButton" onclick="openTab(event, 'Progress')">
+          Weekly Progress
+        </button>
+        <button class="pillButton" onclick="openTab(event, 'About')">
+          About
+        </button>
+      </center>
+      <br />
+    </div>
+
+    <div id="Home" class="tabcontent">
+      <center>
+        <!-- Instructions on using this project -->
+        <div class="instructions">
+          <div style="width: 80%" class="center">
+            <br />
+
+            <strong
+              >SLP Pal is a Speech Language Pathology (SLP) tool developed to
+              help individuals practice forming a variety of speech sounds
+              through vocabulary words.</strong
+            >
+            <br />
+            Each of the vocab words have a paired recording of Annemarie
+            McClurg, a Communication Disorders major at Western Kentucky
+            University, modeling common speech sounds with physical cues. Users
+            can click the check box on each vocab word to indicate that they
+            practiced their pronunciation for the day. This will automatically
+            update the weekly habit tracker where they can monitor their
+            progress!
+            <div id="warning"></div>
+          </div>
+
+          <!--margin: 5vw;-->
+
+          <div
+            style="
+              display: inline-block;
+              vertical-align: top;
+              text-align: center;
+              align-items: center;
+              margin: 5vw;
+            "
+          >
+            <!--all vocab images-->
+            <center>
+              <div>
+                <input
+                  type="image"
+                  src="https://cdn.glitch.global/c9e187f8-bca7-44d5-a5a5-8ee9489a6249/Ball.png?v=1645299481184"
+                  id="ball"
+                  style="max-width: 100%; width: 170px; height: 240px"
+                />
+                <input
+                  type="image"
+                  src="https://cdn.glitch.global/c9e187f8-bca7-44d5-a5a5-8ee9489a6249/candy.png?v=1645299630184"
+                  id="candy"
+                  style="max-width: 100%; width: 170px; height: 240px"
+                />
+                <input
+                  type="image"
+                  src="https://cdn.glitch.global/c9e187f8-bca7-44d5-a5a5-8ee9489a6249/Day.png?v=1645300717066"
+                  id="day"
+                  style="max-width: 100%; width: 170px; height: 240px"
+                />
+                <input
+                  type="image"
+                  src="https://cdn.glitch.global/c9e187f8-bca7-44d5-a5a5-8ee9489a6249/Fairy.png?v=1645301522998"
+                  id="fairy"
+                  style="max-width: 100%; width: 170px; height: 240px"
+                />
+                <input
+                  type="image"
+                  src="https://cdn.glitch.global/c9e187f8-bca7-44d5-a5a5-8ee9489a6249/Goat.png?v=1645301782092"
+                  id="goat"
+                  style="max-width: 100%; width: 170px; height: 240px"
+                />
+                <input
+                  type="image"
+                  src="https://cdn.glitch.global/c9e187f8-bca7-44d5-a5a5-8ee9489a6249/Hug.png?v=1645302076412"
+                  id="hug"
+                  style="max-width: 100%; width: 170px; height: 240px"
+                />
+                <input
+                  type="image"
+                  src="https://cdn.glitch.global/c9e187f8-bca7-44d5-a5a5-8ee9489a6249/Meat.png?v=1645302965108"
+                  id="meat"
+                  style="max-width: 100%; width: 170px; height: 240px"
+                />
+                <input
+                  type="image"
+                  src="https://cdn.glitch.global/c9e187f8-bca7-44d5-a5a5-8ee9489a6249/Nail.png?v=1645303668818"
+                  id="nail"
+                  style="max-width: 100%; width: 170px; height: 240px"
+                />
+                <input
+                  type="image"
+                  src="https://cdn.glitch.global/c9e187f8-bca7-44d5-a5a5-8ee9489a6249/Part.png?v=1645304563837"
+                  id="party"
+                  style="max-width: 100%; width: 170px; height: 240px"
+                />
+                <input
+                  type="image"
+                  src="https://cdn.glitch.global/c9e187f8-bca7-44d5-a5a5-8ee9489a6249/Sing.png?v=1645306043953"
+                  id="sing"
+                  style="max-width: 100%; width: 170px; height: 240px"
+                />
+                <input
+                  type="image"
+                  src="https://cdn.glitch.global/c9e187f8-bca7-44d5-a5a5-8ee9489a6249/Talk.png?v=1645306459398"
+                  id="talk"
+                  style="max-width: 100%; width: 170px; height: 240px"
+                />
+
+                <input
+                  type="image"
+                  src="https://cdn.glitch.global/c9e187f8-bca7-44d5-a5a5-8ee9489a6249/Van.png?v=1645307509429"
+                  id="van"
+                  style="max-width: 100%; width: 170px; height: 240px"
+                />
+
+                <input
+                  type="image"
+                  src="https://cdn.glitch.global/c9e187f8-bca7-44d5-a5a5-8ee9489a6249/Wood.png?v=1645307650562"
+                  id="wood"
+                  style="max-width: 100%; width: 170px; height: 240px"
+                />
+
+                <input
+                  type="image"
+                  src="https://cdn.glitch.global/c9e187f8-bca7-44d5-a5a5-8ee9489a6249/Zipper.png?v=1645307798731"
+                  id="zipper"
+                  style="max-width: 100%; width: 170px; height: 240px"
+                />
+              </div>
+            </center>
+
+            <!--all modals-->
+
+            <div id="ballModal" class="modal">
+              <!-- Modal content -->
+              <div class="modal-content">
+                <span class="close" id="ballClose">&times;</span>
+                <br />
+                <center>
+                  <titlemodal style="color: #b05f6f">Ball</titlemodal>
+
+                  <br />
+                  <video width="200" height="400" background="white" controls>
+                    <source
+                      src="https://cdn.glitch.global/c9e187f8-bca7-44d5-a5a5-8ee9489a6249/IMG_9482.mov?v=1645472300385#t=0.001"
+                      type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                  </video>
+                  <br />
+                  <!--Visual Description: Woman pops fingers out with one hand and with the other touches throat while making a 'B sound'. -->
+
+                  <br />
+                  <input
+                    type="checkbox"
+                    id="ballCheck"
+                    onclick="ballCheckBox()"
+                  />
+
+                  <label for="ballCheck"> Practiced for Today </label><br />
+                </center>
+              </div>
+            </div>
+
+            <div id="candyModal" class="modal">
+              <!-- Modal content -->
+              <div class="modal-content">
+                <span class="close" id="candyClose">&times;</span>
+                <br />
+                <center>
+                  <titlemodal style="color: #ad719b">Candy</titlemodal>
+
+                  <br />
+                  <video width="200" height="400" background="white" controls>
+                    <source
+                      src="https://cdn.glitch.global/c9e187f8-bca7-44d5-a5a5-8ee9489a6249/IMG_9488.mov?v=1645471976999#t=0.001"
+                      type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                  </video>
+                  <br />
+                  <!--Visual Description: Woman pops fingers out with one hand and with the other touches throat while making a 'B sound'. -->
+
+                  <br />
+                  <input
+                    type="checkbox"
+                    id="candyCheck"
+                    onclick="candyCheckBox()"
+                  />
+
+                  <label for="candyCheck"> Practiced for Today </label><br />
+                </center>
+              </div>
+            </div>
+
+            <div id="dayModal" class="modal">
+              <!-- Modal content -->
+              <div class="modal-content">
+                <span class="close" id="dayClose">&times;</span>
+                <br />
+                <center>
+                  <titlemodal style="color: #f2aadc">Day</titlemodal>
+
+                  <br />
+                  <video width="200" height="400" background="white" controls>
+                    <source
+                      src="https://cdn.glitch.global/c9e187f8-bca7-44d5-a5a5-8ee9489a6249/IMG_9479%20(2).mov?v=1645472456883#t=0.001"
+                      type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                  </video>
+                  <br />
+                  <!--Visual Description: Woman pops fingers out with one hand and with the other touches throat while making a 'B sound'. -->
+
+                  <br />
+                  <input
+                    type="checkbox"
+                    id="dayCheck"
+                    onclick="dayCheckBox()"
+                  />
+
+                  <label for="dayCheck"> Practiced for Today </label><br />
+                </center>
+              </div>
+            </div>
+
+            <div id="fairyModal" class="modal">
+              <!-- Modal content -->
+              <div class="modal-content">
+                <span class="close" id="fairyClose">&times;</span>
+                <br />
+                <center>
+                  <titlemodal style="color: #e39b30">Fairy</titlemodal>
+
+                  <br />
+                  <video width="200" height="400" background="white" controls>
+                    <source
+                      src="https://cdn.glitch.global/c9e187f8-bca7-44d5-a5a5-8ee9489a6249/IMG_9486.mov?v=1645472117361#t=0.001"
+                      type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                  </video>
+                  <br />
+                  <!--Visual Description: Woman pops fingers out with one hand and with the other touches throat while making a 'B sound'. -->
+
+                  <br />
+                  <input
+                    type="checkbox"
+                    id="fairyCheck"
+                    onclick="fairyCheckBox()"
+                  />
+
+                  <label for="fairyCheck"> Practiced for Today </label><br />
+                </center>
+              </div>
+            </div>
+
+            <div id="goatModal" class="modal">
+              <!-- Modal content -->
+              <div class="modal-content">
+                <span class="close" id="goatClose">&times;</span>
+                <br />
+                <center>
+                  <titlemodal style="color: #f0c481">Goat</titlemodal>
+
+                  <br />
+                  <video width="200" height="400" background="white" controls>
+                    <source
+                      src="https://cdn.glitch.global/c9e187f8-bca7-44d5-a5a5-8ee9489a6249/IMG_9491.mov?v=1645471926027#t=0.001"
+                      type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                  </video>
+                  <br />
+                  <!--Visual Description: Woman pops fingers out with one hand and with the other touches throat while making a 'B sound'. -->
+
+                  <br />
+                  <input
+                    type="checkbox"
+                    id="goatCheck"
+                    onclick="goatCheckBox()"
+                  />
+
+                  <label for="goatCheck"> Practiced for Today </label><br />
+                </center>
+              </div>
+            </div>
+
+            <div id="hugModal" class="modal">
+              <!-- Modal content -->
+              <div class="modal-content">
+                <span class="close" id="hugClose">&times;</span>
+                <br />
+                <center>
+                  <titlemodal style="color: #dbd000">Hug</titlemodal>
+
+                  <br />
+                  <video width="200" height="400" background="white" controls>
+                    <source
+                      src="https://cdn.glitch.global/c9e187f8-bca7-44d5-a5a5-8ee9489a6249/IMG_9483.mov?v=1645472253898#t=0.001"
+                      type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                  </video>
+                  <br />
+                  <!--Visual Description: Woman pops fingers out with one hand and with the other touches throat while making a 'B sound'. -->
+
+                  <br />
+                  <input
+                    type="checkbox"
+                    id="hugCheck"
+                    onclick="hugCheckBox()"
+                  />
+
+                  <label for="hugCheck"> Practiced for Today </label><br />
+                </center>
+              </div>
+            </div>
+            <div id="meatModal" class="modal">
+              <!-- Modal content -->
+              <div class="modal-content">
+                <span class="close" id="meatClose">&times;</span>
+                <br />
+                <center>
+                  <titlemodal style="color: #154d1d">Meat</titlemodal>
+
+                  <br />
+                  <video width="200" height="400" background="white" controls>
+                    <source
+                      src="https://cdn.glitch.global/c9e187f8-bca7-44d5-a5a5-8ee9489a6249/IMG_9484.mov?v=1645472213429#t=0.001"
+                      type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                  </video>
+                  <br />
+                  <!--Visual Description: Woman pops fingers out with one hand and with the other touches throat while making a 'B sound'. -->
+
+                  <br />
+                  <input
+                    type="checkbox"
+                    id="meatCheck"
+                    onclick="meatCheckBox()"
+                  />
+
+                  <label for="meatCheck"> Practiced for Today </label><br />
+                </center>
+              </div>
+            </div>
+            <div id="nailModal" class="modal">
+              <!-- Modal content -->
+              <div class="modal-content">
+                <span class="close" id="nailClose">&times;</span>
+                <br />
+                <center>
+                  <titlemodal style="color: #2ac965">Nail</titlemodal>
+
+                  <br />
+                  <video width="200" height="400" background="white" controls>
+                    <source
+                      src="https://cdn.glitch.global/c9e187f8-bca7-44d5-a5a5-8ee9489a6249/IMG_9485.mov?v=1645472177619#t=0.001"
+                      type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                  </video>
+                  <br />
+                  <!--Visual Description: Woman pops fingers out with one hand and with the other touches throat while making a 'B sound'. -->
+
+                  <br />
+                  <input
+                    type="checkbox"
+                    id="nailCheck"
+                    onclick="nailCheckBox()"
+                  />
+
+                  <label for="nailCheck"> Practiced for Today </label><br />
+                </center>
+              </div>
+            </div>
+
+            <div id="partyModal" class="modal">
+              <!-- Modal content -->
+              <div class="modal-content">
+                <span class="close" id="partyClose">&times;</span>
+                <br />
+                <center>
+                  <titlemodal style="color: #608f67">Party</titlemodal>
+
+                  <br />
+                  <video width="200" height="400" background="white" controls>
+                    <source
+                      src="https://cdn.glitch.global/c9e187f8-bca7-44d5-a5a5-8ee9489a6249/IMG_9481.mov?v=1645472335125#t=0.001"
+                      type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                  </video>
+                  <br />
+                  <!--Visual Description: Woman pops fingers out with one hand and with the other touches throat while making a 'B sound'. -->
+
+                  <br />
+                  <input
+                    type="checkbox"
+                    id="partyCheck"
+                    onclick="partyCheckBox()"
+                  />
+
+                  <label for="partyCheck"> Practiced for Today </label><br />
+                </center>
+              </div>
+            </div>
+
+            <div id="singModal" class="modal">
+              <!-- Modal content -->
+              <div class="modal-content">
+                <span class="close" id="singClose">&times;</span>
+                <br />
+                <center>
+                  <titlemodal style="color: #3165ad">Sing</titlemodal>
+
+                  <br />
+                  <video width="200" height="400" background="white" controls>
+                    <source
+                      src="https://cdn.glitch.global/c9e187f8-bca7-44d5-a5a5-8ee9489a6249/IMG_9493.mov?v=1645471825441#t=0.001"
+                      type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                  </video>
+                  <br />
+                  <!--Visual Description: Woman pops fingers out with one hand and with the other touches throat while making a 'B sound'. -->
+
+                  <br />
+                  <input
+                    type="checkbox"
+                    id="singCheck"
+                    onclick="singCheckBox()"
+                  />
+
+                  <label for="singCheck"> Practiced for Today </label><br />
+                </center>
+              </div>
+            </div>
+
+            <div id="talkModal" class="modal">
+              <!-- Modal content -->
+              <div class="modal-content">
+                <span class="close" id="talkClose">&times;</span>
+                <br />
+                <center>
+                  <titlemodal style="color: #40aff5">Talk</titlemodal>
+
+                  <br />
+                  <video width="200" height="400" background="white" controls>
+                    <source
+                      src="https://cdn.glitch.global/c9e187f8-bca7-44d5-a5a5-8ee9489a6249/IMG_9478.mov?v=1644552287006#t=0.001"
+                      type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                  </video>
+                  <br />
+                  <!--Visual Description: Woman pops fingers out with one hand and with the other touches throat while making a 'B sound'. -->
+
+                  <br />
+                  <input
+                    type="checkbox"
+                    id="talkCheck"
+                    onclick="talkCheckBox()"
+                  />
+
+                  <label for="talkCheck"> Practiced for Today </label><br />
+                </center>
+              </div>
+            </div>
+
+            <div id="vanModal" class="modal">
+              <!-- Modal content -->
+              <div class="modal-content">
+                <span class="close" id="vanClose">&times;</span>
+                <br />
+                <center>
+                  <titlemodal style="color: #01588f">Van</titlemodal>
+
+                  <br />
+                  <video width="200" height="400" background="white" controls>
+                    <source
+                      src="https://cdn.glitch.global/c9e187f8-bca7-44d5-a5a5-8ee9489a6249/IMG_9487.mov?v=1645472075711#t=0.001"
+                      type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                  </video>
+                  <br />
+                  <!--Visual Description: Woman pops fingers out with one hand and with the other touches throat while making a 'B sound'. -->
+
+                  <br />
+                  <input
+                    type="checkbox"
+                    id="vanCheck"
+                    onclick="vanCheckBox()"
+                  />
+
+                  <label for="talkCheck"> Practiced for Today </label><br />
+                </center>
+              </div>
+            </div>
+
+            <div id="woodModal" class="modal">
+              <!-- Modal content -->
+              <div class="modal-content">
+                <span class="close" id="woodClose">&times;</span>
+                <br />
+                <center>
+                  <titlemodal style="color: #4e3ea8">Wood</titlemodal>
+
+                  <br />
+                  <video width="200" height="400" background="white" controls>
+                    <source
+                      src="https://cdn.glitch.global/c9e187f8-bca7-44d5-a5a5-8ee9489a6249/IMG_9492.mov?v=1645471880667#t=0.001"
+                      type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                  </video>
+                  <br />
+                  <!--Visual Description: Woman pops fingers out with one hand and with the other touches throat while making a 'B sound'. -->
+
+                  <br />
+                  <input
+                    type="checkbox"
+                    id="woodCheck"
+                    onclick="woodCheckBox()"
+                  />
+
+                  <label for="woodCheck"> Practiced for Today </label><br />
+                </center>
+              </div>
+            </div>
+
+            <div id="zipperModal" class="modal">
+              <!-- Modal content -->
+              <div class="modal-content">
+                <span class="close" id="zipperClose">&times;</span>
+                <br />
+                <center>
+                  <titlemodal style="color: #b17efc">Zipper</titlemodal>
+
+                  <br />
+                  <video width="200" height="400" background="white" controls>
+                    <source
+                      src="https://cdn.glitch.global/c9e187f8-bca7-44d5-a5a5-8ee9489a6249/IMG_9495.mov?v=1645471750368#t=0.001"
+                      type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                  </video>
+                  <br />
+                  <!--Visual Description: Woman pops fingers out with one hand and with the other touches throat while making a 'B sound'. -->
+
+                  <br />
+                  <input
+                    type="checkbox"
+                    id="zipperCheck"
+                    onclick="zipperCheckBox()"
+                  />
+
+                  <label for="zipperCheck"> Practiced for Today </label><br />
+                </center>
+              </div>
+            </div>
+
+            <!-- ADD BUTTON HERE -->
+
+            <!-- Once you've added the button from the readme, click it in the page -->
+            <!-- Check out the function in script.js to see how it works -->
+
+            <br />
+          </div>
+        </div>
+      </center>
+    </div>
+
+    <div id="About" class="tabcontent">
+      <div class="dayTab">
+        <br />
+        <center>
+          <titlemodal>About</titlemodal>
+          <br />
+          <br />
+          <div style="width: 80%" class="center">
+            <br />
+            <div
+              style="
+                font-size: 25px;
+                font-style: bold;
+                text-align: center;
+                background: #c5cff0;
+                width: 80%;
+                font-family: 'HK Grotesk', serif;
+              "
+            >
+              Intro to SLP
+            </div>
+            <br />
+            <div class="left">
+              <br />
+              Speech-language pathology (SLP) is a field of study dedicated to
+              helping individuals with speech, language, voice, and swallowing
+              impairments. Speech-language pathologists can help these
+              individuals through diagnosis, developing treatment plans,
+              providing therapy, and helping track and evaluate their progress.
+
+              <br />
+              <br />
+              <center>
+                <image
+                  type="image"
+                  src=" https://cdn.glitch.global/c9e187f8-bca7-44d5-a5a5-8ee9489a6249/speak.png?v=1645991400742"
+                  id="slpIcon"
+                  style="max-width: 100%; width: 95px; height: 100px"
+                />
+              </center>
+              <br />
+            </div>
+            <br />
+            <div
+              style="
+                font-size: 25px;
+                font-style: bold;
+                text-align: center;
+                background: #c5cff0;
+                width: 80%;
+                font-family: 'HK Grotesk', serif;
+              "
+            >
+              About SLP Pal
+            </div>
+            <br />
+            <div class="left">
+              <br />
+              SLP Pal enables users to practice their pronunciation of commonly
+              mispronounced speech sounds. This interactive web tool allows
+              users to view videos of vocabulary words paired with hand cues.
+              Hand cues are used in therapy to remind patients of the physical
+              attributes needed to pronounce the vocabulary.
+              <br />
+              <br />
+              For example, when working on the /h/ sound associated with the
+              word ‘hug’, the paired video shows a woman blowing hot air on her
+              hand. Because hot air is needed to make the /h/ sound, pairing
+              this action with your pronunciation reinforces the physical
+              element of pronouncing the word.
+              <br />
+              <center>
+                <image
+                  type="image"
+                  src="https://cdn.glitch.global/c9e187f8-bca7-44d5-a5a5-8ee9489a6249/hug.png?v=1645991188824"
+                  id="hugEx"
+                  style="max-width: 100%; width: 100px; height: 100px"
+                />
+              </center>
+              Another example would be the /n/ sound associated with the word
+              ‘nail’. This sound is a nasal sound, meaning to pronounce it, one
+              must work with their nose. To remind the user of this, the vocab
+              video shows a woman tapping her nose.
+              <br />
+
+              <center>
+                <image
+                  type="image"
+                  src="https://cdn.glitch.global/c9e187f8-bca7-44d5-a5a5-8ee9489a6249/nail.svg?v=1645991107771"
+                  id="nailEx"
+                  style="max-width: 100%; width: 100px; height: 100px"
+                />
+              </center>
+              Having the motions paired with the pronunciation allows users to
+              learn about these helpful tools and to implement them into their
+              own therapy journey.
+              <br />
+              <br />
+              Another aspect of SLP pal is a habit tracker that allows
+              users to view their weekly progress. This is impactful for helping
+              users create a routine that helps build their abilities over time.
+              <br />
+            </div>
+            <br />
+            <div
+              style="
+                font-size: 25px;
+                font-style: bold;
+                text-align: center;
+                background: #c5cff0;
+                width: 80%;
+                font-family: 'HK Grotesk', serif;
+              "
+            >
+              Behind The Creation of SLP Pal
+            </div>
+            <br />
+            <br />
+            <div class="left">
+              SLP Pal was created by sisters Grace and Annemarie McClurg.
+              Annemarie is a student at Western Kentucky University studying
+              Communication Disorders and Grace is a student at the University
+              of Louisville studying Computer Science and Engineering. This
+              project allowed us to both learn about the other's field while
+              creating an impactful tool for SLP.
+              <br />
+              <br />
+              Annemarie learned more about web development with concepts such as
+              local storage that enables users to see their weekly progress,
+              JavaScript that supports interactivity, HTML, and CSS. Grace
+              learned about SLP concepts including hand cues and commonly
+              mispronounced speech sounds.
+              <br />
+              <br />
+              This project has ultimately given us a more in-depth understanding
+              of making accessible technology that helps empower others.
+              <br />
+              <br />
+              <center>
+                <image
+                  type="image"
+                  src=" https://cdn.glitch.global/c9e187f8-bca7-44d5-a5a5-8ee9489a6249/tech.svg?v=1645993507688"
+                  id="phone"
+                  style="max-width: 100%; width: 100px; height: 100px"
+                />
+              </center>
+
+              <br />
+              <br />
+            </div>
+          </div>
+        </center>
+      </div>
+    </div>
+
+    <div id="Progress" class="tabcontent">
+      <br />
+
+      <div class="dayTab">
+        <br />
+        <center>
+          <titlemodal>Past 7 Days of Progress</titlemodal>
+          <br />
+          <br />
+          <button
+            class="dayTablinks"
+            onclick="openDay(event, 'd1',this,1)"
+            id="day1"
+            onmouseover="onHover(this,1)"
+            onmouseout="offHover(this,1)"
+          ></button>
+          <button
+            class="dayTablinks"
+            onclick="openDay(event, 'd2',this,2)"
+            onmouseover="onHover(this,2)"
+            onmouseout="offHover(this,2)"
+            id="day2"
+          ></button>
+          <button
+            class="dayTablinks"
+            onclick="openDay(event, 'd3',this,3)"
+            onmouseover="onHover(this,3)"
+            onmouseout="offHover(this,3)"
+            id="day3"
+          ></button>
+          <button
+            class="dayTablinks"
+            onclick="openDay(event, 'd4',this,4)"
+            onmouseover="onHover(this,4)"
+            onmouseout="offHover(this,4)"
+            id="day4"
+          ></button>
+          <button
+            class="dayTablinks"
+            onclick="openDay(event, 'd5',this,5)"
+            onmouseover="onHover(this,5)"
+            onmouseout="offHover(this,5)"
+            id="day5"
+          ></button>
+          <button
+            class="dayTablinks"
+            onclick="openDay(event, 'd6',this,6)"
+            onmouseover="onHover(this,6)"
+            onmouseout="offHover(this,6)"
+            id="day6"
+          ></button>
+          <button
+            class="dayTablinks"
+            onclick="openDay(event, 'd7',this,7)"
+            onmouseover="onHover(this,7)"
+            onmouseout="offHover(this,7)"
+            id="day7"
+          ></button>
+        </center>
+        <br />
+      </div>
+      <div id="d1" class="dayTabcontent"></div>
+      <div id="d2" class="dayTabcontent"></div>
+      <div id="d3" class="dayTabcontent"></div>
+      <div id="d4" class="dayTabcontent"></div>
+      <div id="d5" class="dayTabcontent"></div>
+      <div id="d6" class="dayTabcontent"></div>
+      <div id="d7" class="dayTabcontent"></div>
+    </div>
+  </body>
+</html>
